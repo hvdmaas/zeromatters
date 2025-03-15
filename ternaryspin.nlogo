@@ -1,3 +1,4 @@
+;version 1.0
 extensions [ palette ]
 
 globals [
@@ -27,6 +28,7 @@ to setup
   if network = "Lattice" [Lattice]
   if network = "Erdős–Rényi" [Erdős-Rényi]
   if network = "Prefential-attachment" [Prefential-attachment]
+ ; ask links [ set color black ]
 
 
  ;; Compute step size (interval between node value) and set spins
@@ -657,15 +659,15 @@ NIL
 0
 
 SLIDER
-11
-470
-221
-503
+10
+540
+220
+573
 temperature
 temperature
 0
 5
-1.0
+2.0
 0.01
 1
 NIL
@@ -708,54 +710,54 @@ NIL
 1
 
 SLIDER
-11
-505
-306
-538
+5
+585
+300
+618
 tau
 tau
 -12
 12
--0.5050000000000546
+0.0
 .01
 1
 NIL
 HORIZONTAL
 
 SLIDER
-15
-150
-310
-183
+5
+135
+300
+168
 nr-nodes
 nr-nodes
 0
 500
-50.0
+100.0
 1
 1
 NIL
 HORIZONTAL
 
 SLIDER
-11
-540
-306
-573
+5
+630
+300
+663
 alpha
 alpha
 0
 8
-8.0
+2.27
 .01
 1
 NIL
 HORIZONTAL
 
 PLOT
-1190
+1180
 280
-1430
+1445
 450
 Histogram
 magn.
@@ -771,10 +773,10 @@ PENS
 "default" 1.0 1 -5825686 true "" "histogram [spin] of turtles\n;histogram [round max-spin * spin] of turtles"
 
 SLIDER
-15
-210
-190
-243
+5
+195
+180
+228
 p-connect
 p-connect
 0
@@ -786,9 +788,9 @@ NIL
 HORIZONTAL
 
 PLOT
-940
+910
 280
-1180
+1170
 450
 m,n
 NIL
@@ -804,20 +806,20 @@ PENS
 "default" 1.0 2 -16777216 true "" "plotxy magnetization zeros"
 
 CHOOSER
-15
-100
-197
-145
+5
+85
+187
+130
 network
 network
 "Lattice" "Erdős–Rényi" "Prefential-attachment"
 1
 
 SWITCH
-15
-60
-157
-93
+40
+435
+170
+468
 Random_seed
 Random_seed
 0
@@ -825,20 +827,20 @@ Random_seed
 -1000
 
 CHOOSER
-175
-100
-313
-145
+165
+85
+303
+130
 model
 model
 "Ubics" "BC" "Ising" "BEG"
-2
+1
 
 SLIDER
-11
-580
-306
-613
+5
+675
+300
+708
 rho
 rho
 0
@@ -850,25 +852,25 @@ NIL
 HORIZONTAL
 
 SLIDER
-14
-310
-289
-343
+4
+295
+279
+328
 nr-of-spin-values
 nr-of-spin-values
 3
 1001
-100.0
+3.0
 2
 1
 NIL
 HORIZONTAL
 
 SLIDER
-15
-404
-226
-437
+5
+389
+216
+422
 p01
 p01
 0
@@ -880,10 +882,10 @@ NIL
 HORIZONTAL
 
 MONITOR
-247
-368
-304
-413
+230
+365
+287
+410
   p-101
 p-101
 3
@@ -891,10 +893,10 @@ p-101
 11
 
 MONITOR
+205
 215
-230
-307
-275
+297
+260
 mean degree
 mean-degree
 0
@@ -902,20 +904,20 @@ mean-degree
 11
 
 TEXTBOX
-30
-352
-239
-379
+20
+337
+229
+364
 prop. of [-1..0] and [0..1] spins
 11
 0.0
 1
 
 MONITOR
-236
-455
-293
-500
+235
+525
+292
+570
 Beta
 1 / temperature
 2
@@ -923,10 +925,10 @@ Beta
 11
 
 SLIDER
-15
-265
-187
-298
+5
+250
+177
+283
 sigma
 sigma
 0
@@ -938,33 +940,33 @@ NIL
 HORIZONTAL
 
 TEXTBOX
-15
-250
-165
-268
+5
+235
+155
+253
 connection strength:
 11
 0.0
 1
 
 TEXTBOX
-20
-195
-170
-213
+10
+180
+160
+198
 if \"Erdős–Rényi\":
 11
 0.0
 1
 
 TEXTBOX
-31
-440
-208
-467
+15
+500
+195
+531
 Model parameters. Can be varied during simulation:
-11
-0.0
+13
+14.0
 1
 
 TEXTBOX
@@ -978,35 +980,35 @@ red to blue = [-1,1]
 1
 
 CHOOSER
-30
-650
-168
-695
+935
+500
+1073
+545
 time-varying
 time-varying
 "none" "tau" "alpha" "temperature" "rho" "sigma"
-1
+0
 
 SLIDER
-25
-800
-209
-833
+930
+635
+1114
+668
 c
 c
 1
 10
-3.0
+1.0
 .1
 1
 NIL
 HORIZONTAL
 
 PLOT
-319
-623
-898
-828
+315
+620
+894
+825
 bifurcation
 time-varying
 m
@@ -1022,72 +1024,72 @@ PENS
 "pen-1" 1.0 2 -10649926 true "" "if time-varying  = \"tau\" and dir = -1 [plotxy tau magnetization]\nif time-varying  = \"alpha\" and dir = -1 [plotxy alpha magnetization]\nif time-varying  = \"temperature\" and dir = -1 [plotxy temperature magnetization]\nif time-varying  = \"rho\" and dir = -1 [plotxy rho magnetization]\nif time-varying  = \"sigma\" and dir = -1 [plotxy sigma magnetization]"
 
 INPUTBOX
-113
-712
-185
-772
+1020
+555
+1092
+615
 max-TV
-1.5
+0.0
 1
 0
 Number
 
 INPUTBOX
-25
-712
-99
-772
+932
+555
+1006
+615
 min-TV
--1.5
+0.0
 1
 0
 Number
 
 TEXTBOX
-30
-628
-218
-657
-bifurcation plots
-11
-0.0
+935
+478
+1123
+507
+Create bifurcation plots
+12
+14.0
 1
 
 TEXTBOX
-43
-780
-231
-803
+948
+615
+1136
+638
 change = 10^-c
 11
 0.0
 1
 
 CHOOSER
-939
-612
-1373
-657
+930
+755
+1364
+800
 scenario
 scenario
 "none" "A: Self-organizing spatial patterns in Ising lattice model" "B: Hysteresis (tau), Ising model" "C: Pichtfork (temperature), Ising model" "D: Cramer model of depression (01 Ising model)" "E: Hysteresis in Ising model with 100 spin values per node" "F: Tricritical transition (figure 2)" "G: Stochastic resonance in BC at low alpha" "H: Tricritical behavior in BC" "I: Fig 4: Double or pinched hysteresis" "J: Tricritical behavior in Ubics in Preferential attachment model" "K: Trimodal distribution of m in Ubics lattice model" "L: Mixed islands in the BEG lattice model" "M: Rho bifurcation" "N: PANAS case: 01 and -101 nodes mixed" "Asymmetric hysteresis in BC"
 0
 
 TEXTBOX
-943
-556
-1415
-602
+934
+714
+1406
+760
 Here you can select pre-defined scenarios that illustrate properties of the models, discussed in the paper:
 13
 14.0
 1
 
 SLIDER
-15
-368
-227
-401
+5
+353
+217
+386
 p-10
 p-10
 0
@@ -1097,6 +1099,16 @@ p-10
 1
 NIL
 HORIZONTAL
+
+TEXTBOX
+15
+65
+165
+83
+Setup model
+13
+14.0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
@@ -1143,7 +1155,6 @@ Please cite the NetLogo software as:
 ## COPYRIGHT AND LICENSE
 
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License.  To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
-
 @#$#@#$#@
 default
 true
